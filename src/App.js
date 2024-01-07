@@ -6,7 +6,6 @@ async function testFetch() {
     headers: {
       "Content-Type": "application/json",
     },
-    credentials: "include",
   })
     .then((r) => {
       return r.json();
@@ -20,7 +19,7 @@ async function testFetch() {
 function App() {
   return (
     <div className="App">
-      <button onClick={testFetch}>Test Fetch</button>
+      <button onClick={testFetch}>연동 테스트2</button>
       <div className="testfetch"></div>
     </div>
   );
