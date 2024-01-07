@@ -8,6 +8,14 @@
 # vsc push detect
 .git
 
+# idea push detect
+.idea
+
+# vsc/webstorm 외 편집기들도 아래에 추가해주세요.
+# ex) .atom / .sublime / .vim
+.atom
+.sublime
+.vim
 
 package-lock.json
 
