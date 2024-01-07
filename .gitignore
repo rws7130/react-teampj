@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+
+
 # testing
 /coverage
 
@@ -14,7 +16,9 @@
 # misc
 .DS_Store
 .env.local
+# env세팅 이름입니다. 동일하게 맞춰주세요.
 .env.development.local
+# env세팅 이름입니다. 동일하게 맞춰주세요.
 .env.test.local
 .env.production.local
 
