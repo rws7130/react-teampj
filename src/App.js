@@ -1,7 +1,8 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 
 function App() {
+  console.log('app.js')
   return <div className="App">모듈설치중</div>;
 }
 
