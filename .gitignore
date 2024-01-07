@@ -30,9 +30,7 @@ Project_Default.xml
 
 # misc
 .DS_Store
-# env세팅 이름입니다. 동일하게 맞춰주세요.
-.env
-# env세팅 이름입니다. 동일하게 맞춰주세요.
+
 .env.local
 .env.test.local
 .env.production.local
