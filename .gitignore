@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+# vsc push detect
+.git
 
 
 package-lock.json
