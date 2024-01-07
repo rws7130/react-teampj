@@ -20,13 +20,14 @@ Project_Default.xml
 
 # misc
 .DS_Store
+# env세팅 이름입니다. 동일하게 맞춰주세요.
+.env
+# env세팅 이름입니다. 동일하게 맞춰주세요.
 .env.local
-# env세팅 이름입니다. 동일하게 맞춰주세요.
-.env.development.local
-# env세팅 이름입니다. 동일하게 맞춰주세요.
 .env.test.local
 .env.production.local
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/.env
