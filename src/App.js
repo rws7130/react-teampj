@@ -6,6 +6,7 @@ async function testFetch() {
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "include",
   })
     .then((r) => {
       return r.json();
