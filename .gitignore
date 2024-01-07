@@ -5,6 +5,11 @@
 /.pnp
 .pnp.js
 
+
+
+package-lock.json
+
+
 .vscode
 Project_Default.xml
 # testing
