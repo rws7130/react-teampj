@@ -3,6 +3,15 @@ import { useMutation } from "react-query";
 import { login, kakaoLogin } from "../../../api/auth/auth";
 import { useUserStore } from "../../../store/useUserStore";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  LoginContainer,
+  LoginBox,
+  LoginInput,
+  LoginButton,
+  KaKaoLoginButton,
+  LoginCheckboxLabel,
+  LoginCheckbox,
+} from "./LoginStyled";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -34,29 +43,30 @@ const LoginPage = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h1>일반회원로그인</h1>
-        <input
+    <LoginContainer>
+      <LoginBox>
+        <h1>로그인</h1>
+        <LoginInput
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input
+        <LoginInput
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button onClick={handleLogin}>Login</button>
+        <LoginCheckboxLabel htmlFor="memory">아이디 저장</LoginCheckboxLabel>
+        <LoginCheckbox type="checkbox" name="memory" />
+        <LoginButton onClick={handleLogin}>Login</LoginButton>
         <Link to="/signup">회원가입</Link>
-      </div>
-      <div>
-        <h1>카카오 로그인</h1>
-        <button onClick={handleKaKaoLogin}>카카오 간편로그인</button>
-      </div>
-    </div>
+        <KaKaoLoginButton onClick={handleKaKaoLogin}>
+          카카오 간편로그인
+        </KaKaoLoginButton>
+      </LoginBox>
+    </LoginContainer>
   );
 };
 
