@@ -1,33 +1,20 @@
-import React, { useState } from "react";
 import "./App.css";
+import LoginPage from "./client/components/login/LoginPage";
+import HomePage from "./client/components/main/HomePage";
+import { useUserStore } from "./client/store/useUserStore";
 
-function App() {
-  const [isLoading, setIsLoading] = useState(false);
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import AdminLogin from "./admin/AdminLogin";
 
-  async function testFetch() {
-    setIsLoading(true); // 요청 시작 시 로딩 상태를 true로 설정
-    fetch(`${process.env.REACT_APP_SERVER_URL}/goods`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((r) => r.json())
-      .then((obj) => {
-        document.querySelector(".testfetch").innerHTML = JSON.stringify(obj);
-      })
-      .catch((err) => console.log(err))
-      .finally(() => setIsLoading(false)); // 요청 완료 시 로딩 상태를 false로 설정
-  }
-
+export default function App() {
+  const user = useUserStore((state) => state.user);
   return (
-    <div className="App">
-      <button onClick={testFetch} disabled={isLoading}>
-        {isLoading ? "연동 중..." : "연동 테스트2"}
-      </button>
-      <div className="testfetch"></div>
-    </div>
+    <Router>
+      <Routes>
+        <Route exact path="/" element={user ? <HomePage /> : <LoginPage />} />
+        <Route path="/admin" element={<AdminLogin />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
