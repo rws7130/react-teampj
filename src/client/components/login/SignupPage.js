@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "react-query";
-import { login, kakaoLogin } from "../../../api/auth/auth";
+import { signup } from "../../../api/auth/auth";
 import { useUserStore } from "../../../store/useUserStore";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -11,8 +11,23 @@ const SignupPage = () => {
   const [name, setName] = useState("");
   const [nickname, setNickname] = useState("");
   const setUser = useUserStore((state) => state.setUser);
+
+  const { mutate } = useMutation(signup, {
+    onSuccess: async (data) => {
+      console.log("success");
+      await setUser(data);
+    },
+    onError: (error) => {
+      console.error("signup failed", error);
+    },
+  });
+
   const handleSignup = () => {
-    console.log("회원가입");
+    if (password !== passwordConfirm) {
+      alert("비밀번호가 일치하지 않습니다.");
+      return;
+    }
+    mutate({ email, password, name, nickname });
   };
   const handleVerifyEmail = () => {
     console.log("이메일인증");

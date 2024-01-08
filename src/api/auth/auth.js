@@ -28,6 +28,34 @@ export const login = async (user) => {
   }
 };
 
+export const signup = async (user) => {
+  console.log(user);
+  try {
+    const res = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/auth/register/email`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    );
+    const data = await res.json();
+    console.log(data);
+    console.log("응답코드 변경해야함");
+    if (data.statusCode !== 401 || data.statusCode !== 400) {
+      useUserStore.getState().setAccessToken(data.accessToken);
+      secureLocalStorage.setItem("refreshToken", data.refreshToken);
+    } else {
+      alert(data.message);
+    }
+    return data.userInfo;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const kakaoLogin = async () => {
   window.Kakao.init(process.env.REACT_APP_KAKAO_JS_SDK_KEY);
   console.log(window.Kakao.isInitialized());
