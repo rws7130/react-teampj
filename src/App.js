@@ -7,6 +7,7 @@ import Main from "./admin/main/MainPage";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminLogin from "./admin/AdminLogin";
+import SignupPage from "./client/components/login/SignupPage";
 
 export default function App() {
   const user = useUserStore((state) => state.user);
@@ -16,6 +17,8 @@ export default function App() {
         <Route exact path="/" element={user ? <HomePage /> : <LoginPage />} />
         <Route path="/admin" element={<AdminLogin />} />
         <Route path="/admin/main" element={<Main />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
       </Routes>
     </Router>
   );

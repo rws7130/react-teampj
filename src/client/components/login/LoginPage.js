@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMutation } from "react-query";
 import { login, kakaoLogin } from "../../../api/auth/auth";
 import { useUserStore } from "../../../store/useUserStore";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -35,23 +35,26 @@ const LoginPage = () => {
 
   return (
     <div>
-      <h1>일반회원로그인</h1>
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
+      <div>
+        <h1>일반회원로그인</h1>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button onClick={handleLogin}>Login</button>
+        <Link to="/signup">회원가입</Link>
+      </div>
       <div>
         <h1>카카오 로그인</h1>
-        <button onClick={handleKaKaoLogin}>Kakao Login</button>
+        <button onClick={handleKaKaoLogin}>카카오 간편로그인</button>
       </div>
     </div>
   );
