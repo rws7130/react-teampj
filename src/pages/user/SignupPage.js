@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "react-query";
-import { signup } from "../../api/auth/auth";
 import { useUserStore } from "../../store/useUserStore";
 import { Link, useNavigate } from "react-router-dom";
+import signup from "../../api/auth";
 
 const SignupPage = () => {
   const [email, setEmail] = useState("");
