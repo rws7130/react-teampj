@@ -1,4 +1,5 @@
 const styledOptions = {
+  // color: ${({theme}) => theme.colors.컬러이름}
   colors: {
     white: '#FFFFFF',
     black: '#1C1C28',
