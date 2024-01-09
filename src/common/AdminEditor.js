@@ -13,7 +13,7 @@ function AdminEditor() {
     // editorState에 값 설정
     setEditorState(editorState);
   };
-
+  console.log(12312312);
   const EditorStyle = styled.div`
     border: '1px solid gray',
     padding: '10px',
