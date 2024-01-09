@@ -3,13 +3,13 @@ import LoginPage from "./client/components/login/LoginPage";
 import HomePage from "./client/components/main/HomePage";
 import { useUserStore } from "./store/useUserStore";
 import Main from "./admin/main/MainPage";
-
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import AdminLogin from "./admin/AdminLogin";
 import SignupPage from "./client/components/login/SignupPage";
 
 export default function App() {
+  console.log(1);
   const user = useUserStore((state) => state.user);
   return (
     <Router>
