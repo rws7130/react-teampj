@@ -13,7 +13,7 @@ function AdminEditor() {
     // editorState에 값 설정
     setEditorState(editorState);
   };
-  console.log(12312312);
+
   const EditorStyle = styled.div`
     border: '1px solid gray',
     padding: '10px',
@@ -35,7 +35,7 @@ function AdminEditor() {
 
   return (
     <>
-      <h1>에디터 테스트</h1>
+      <h1>에디터 컴포넌트</h1>
       <EditorStyle>
         {/* <Editor editorState={editorState} onChange={handleChange} /> */}
         <Editor

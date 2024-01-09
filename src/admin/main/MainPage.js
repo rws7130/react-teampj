@@ -19,7 +19,14 @@ const MainPage = () => {
       <h1>어드민 메인 </h1>
       <h2>{user?.email}</h2>
       <Link to="/">유저 홈 이동</Link>
-      <AdminEditor />
+      <div>
+        <Link to="/admin/dev1">Dev1</Link>
+        <Link to="/admin/dev2">Dev2</Link>
+        <Link to="/admin/dev3">Dev3</Link>
+        <Link to="/admin/dev4">Dev4</Link>
+        <Link to="/admin/dev5">Dev5</Link>
+        <Link to="/admin/dev6">Dev6</Link>
+      </div>
     </div>
   );
 };
