@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = process.env.REACT_APP_API_URL;
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
+
+console.log('BASE_URL', BASE_URL);
 
 const createAxiosInstance = (url) => {
   const endpoint = url;

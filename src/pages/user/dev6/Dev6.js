@@ -1,11 +1,49 @@
 import AdminEditor from "../../../components/AdminEditor";
 import UserDev3 from "../dev3/Dev3";
 import {useEffect} from "react";
+import createAxiosInstance from "../../../api/axios";
+import {useUserStore} from "../../../store/useUserStore";
+
+
 export default function Dev6() {
 
+    const accessToken = useUserStore((state) => state.accessToken);
+    const user = useUserStore((state) => state.user);
+    console.log(user)
+    console.log(accessToken)
+// Axios 인스턴스 생성
+    const axiosInstance = createAxiosInstance('/api6s');
 
-    const getApi6 = () => {
+    const postApi6 = async ()=> {
+        const body = {
+            title : "test123",
+            content : "test123456",
+        };
+        const config = {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            },
+        };
 
+        try {
+            const res = await axiosInstance.post(body, config);
+            if(!res) alert('통신상태 이상')
+            console.log(res);
+
+        } catch (err) {
+            console.error(err);
+
+        }
+    }
+    const getApi6 = async () => {
+        try {
+            const res = await axiosInstance.get();
+            console.log(res.data);
+            const boardList = res.data
+
+        } catch (err) {
+            console.error(err);
+        }
     }
 
     useEffect(() => {
@@ -26,7 +64,10 @@ export default function Dev6() {
         <div>
 
             <button onClick={getApi6}>
-                겟요청예시
+                겟 요청 예시
+            </button>
+            <button onClick={postApi6}>
+                포스트 요청 예시
             </button>
         </div>
 

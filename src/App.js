@@ -26,6 +26,7 @@ function Main() {
 export default function App() {
   console.log(1);
   const user = useUserStore((state) => state.user);
+
   return (
     <Router>
       <Routes>
