@@ -11,6 +11,12 @@ import Dev5 from "./pages/admin/dev5/Dev5";
 import Dev6 from "./pages/admin/dev6/Dev6";
 import SignupPage from "./pages/user/SignupPage";
 import React from "react";
+import UserDev1 from "./pages/user/dev1/Dev1";
+import UserDev2 from "./pages/user/dev2/Dev2";
+import UserDev3 from "./pages/user/dev3/Dev3";
+import UserDev4 from "./pages/user/dev4/Dev4";
+import UserDev5 from "./pages/user/dev5/Dev5";
+import UserDev6 from "./pages/user/dev6/Dev6";
 
 
 function Main() {
@@ -32,6 +38,12 @@ export default function App() {
         <Route path="/admin/dev4" element={<Dev4 />} />
         <Route path="/admin/dev5" element={<Dev5 />} />
         <Route path="/admin/dev6" element={<Dev6 />} />
+        <Route path="/user/dev1" element={<UserDev1 />} />
+        <Route path="/user/dev2" element={<UserDev2 />} />
+        <Route path="/user/dev3" element={<UserDev3 />} />
+        <Route path="/user/dev4" element={<UserDev4 />} />
+        <Route path="/user/dev5" element={<UserDev5 />} />
+        <Route path="/user/dev6" element={<UserDev6 />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
