@@ -1,32 +1,17 @@
-// import React, { useState, useEffect } from "react";
-// import { useMutation } from "react-query";
-// import { login, kakaoLogin } from "../../../api/auth/auth";
-// import { useUserStore } from "../../../store/useUserStore";
-// import { Link, useNavigate } from "react-router-dom";
-// import {
-//   LoginContainer,
-//   LoginBox,
-//   LoginInput,
-//   LoginButton,
-//   KaKaoLoginButton,
-//   LoginCheckboxLabel,
-//   LoginCheckbox,
-// } from "../../styles/LoginStyled";
-
-
-import React, {useState} from "react";
-import {useUserStore} from "../../store/useUserStore";
-import {useMutation} from "react-query";
-import {kakaoLogin, login} from "../../api/auth";
+import React, { useState, useEffect } from "react";
+import { useMutation } from "react-query";
+import { login, kakaoLogin } from "../../../api/auth/auth";
+import { useUserStore } from "../../../store/useUserStore";
+import { Link, useNavigate } from "react-router-dom";
 import {
-  KaKaoLoginButton, LoginBox,
-  LoginButton,
-  LoginCheckbox,
-  LoginCheckboxLabel,
   LoginContainer,
-  LoginInput
+  LoginBox,
+  LoginInput,
+  LoginButton,
+  KaKaoLoginButton,
+  LoginCheckboxLabel,
+  LoginCheckbox,
 } from "../../styles/LoginStyled";
-import {Link} from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
