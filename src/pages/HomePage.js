@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useUserStore } from "../../../store/useUserStore";
+import { useUserStore } from "../store/useUserStore";
 import { Link } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
 

@@ -11,7 +11,7 @@ import {
   KaKaoLoginButton,
   LoginCheckboxLabel,
   LoginCheckbox,
-} from "./LoginStyled";
+} from "../../styles/LoginStyled";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");

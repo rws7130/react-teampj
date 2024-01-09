@@ -1,4 +1,4 @@
-import AdminEditor from "../../common/AdminEditor";
+import AdminEditor from "../../components/AdminEditor";
 
 export default function Dev2() {
   return (
