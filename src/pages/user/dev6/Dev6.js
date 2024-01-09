@@ -35,6 +35,7 @@ export default function Dev6() {
 
         }
     }
+    
     const getApi6 = async () => {
         try {
             const res = await axiosInstance.get();
