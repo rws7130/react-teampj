@@ -5,12 +5,12 @@ import secureLocalStorage from "react-secure-storage";
 
 const HomePage = () => {
   const user = useUserStore((state) => state.user);
-  useEffect(() => {
-    const refreshToken = secureLocalStorage.getItem("refreshToken");
-    if (refreshToken) {
-      useUserStore.getState().setRefreshToken(refreshToken);
-    }
-  }, []);
+  // useEffect(() => {
+  //   const refreshToken = secureLocalStorage.getItem("refreshToken");
+  //   if (refreshToken) {
+  //     useUserStore.getState().setRefreshToken(refreshToken);
+  //   }
+  // }, []);
 
   return (
     <div>

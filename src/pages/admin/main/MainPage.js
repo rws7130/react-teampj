@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
-import { useUserStore } from "../../store/useUserStore";
 import { Link } from "react-router-dom";
 import secureLocalStorage from "react-secure-storage";
-import AdminEditor from "../../components/AdminEditor";
+import {useUserStore} from "../../../store/useUserStore";
+
+
 
 const MainPage = () => {
   const user = useUserStore((state) => state.user);

@@ -1,18 +1,23 @@
-import { Route, Router, Routes } from "react-router-dom";
-import LoginPage from "./pages/user/LoginPage";
-import SignupPage from "./pages/user/SignupPage";
+import {useUserStore} from "./store/useUserStore";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/user/LoginPage";
 import AdminLogin from "./pages/admin/AdminLogin";
-import Main from "./pages/admin/main/MainPage";
 import Dev1 from "./pages/admin/dev1/Dev1";
 import Dev2 from "./pages/admin/dev2/Dev2";
 import Dev3 from "./pages/admin/dev3/Dev3";
 import Dev4 from "./pages/admin/dev4/Dev4";
 import Dev5 from "./pages/admin/dev5/Dev5";
 import Dev6 from "./pages/admin/dev6/Dev6";
-import { useUserStore } from "./store/useUserStore";
+import SignupPage from "./pages/user/SignupPage";
+import React from "react";
 
-export function App() {
+
+function Main() {
+  return null;
+}
+
+export default function App() {
   console.log(1);
   const user = useUserStore((state) => state.user);
   return (

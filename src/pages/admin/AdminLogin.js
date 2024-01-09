@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useMutation } from "react-query";
-import { login } from "../api/auth/auth";
-import { useUserStore } from "./../store/useUserStore";
+
+
 import { useNavigate } from "react-router-dom";
+import {login} from "../../api/auth";
+import {useUserStore} from "../../store/useUserStore";
 
 const AdminLogin = () => {
   const [email, setEmail] = useState("");
