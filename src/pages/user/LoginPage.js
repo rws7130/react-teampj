@@ -71,9 +71,7 @@ const LoginPage = () => {
         <LoginCheckbox type="checkbox" name="memory" />
         <LoginButton onClick={handleLogin}>Login</LoginButton>
         <Link to="/signup">회원가입</Link>
-        <KaKaoLoginButton onClick={handleKaKaoLogin}>
-          카카오 간편로그인
-        </KaKaoLoginButton>
+        <KaKaoLoginButton onClick={handleKaKaoLogin}>카카오 간편로그인</KaKaoLoginButton>
       </LoginBox>
     </LoginContainer>
   );
