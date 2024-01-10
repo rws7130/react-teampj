@@ -15,22 +15,22 @@ function AdminEditor() {
   };
 
   const EditorStyle = styled.div`
-    border: '1px solid gray',
-    padding: '10px',
-    minHeight: '400px',
-    cursor: 'text',
-    backgroundColor: 'white',
-    .wrapper-class{
+    border: '1px solid gray';
+    padding: '10px';
+    min-height: '400px';
+    cursor: 'text';
+    background-color: 'white';
+    .wrapper-class {
       width: 50%;
       margin: 0 auto;
       margin-bottom: 4rem;
-  }
-.editor {
-  height: 500px !important;
-  border: 1px solid #f1f1f1 !important;
-  padding: 5px !important;
-  border-radius: 2px !important;
-}
+    }
+    .editor {
+      height: 500px !important;
+      border: 1px solid #f1f1f1 !important;
+      padding: 5px !important;
+      border-radius: 2px !important;
+    }
   `;
 
   return (
