@@ -27,15 +27,19 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'testing-library', 'jest', 'jest-dom'],
+  plugins: ['react', 'testing-library', 'jest', 'jest-dom', 'import'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'import/prefer-default-export': 'off',
-    'import/extensions': ['off'],
+    'import/no-unresolved': ['error', { caseSensitive: false }],
   },
   settings: {
     react: {
       version: 'detect',
+    },
+    'import/resolver': {
+      node: {
+        paths: ['src'],
+      },
     },
   },
   ignorePatterns: ['public'],
