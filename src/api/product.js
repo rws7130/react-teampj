@@ -1,6 +1,6 @@
-import React from "react";
-import { useUserStore } from "./../store/useUserStore";
-import createAxiosInstance from "./axios";
+// import React from 'react';
+import { useUserStore } from './../store/useUserStore';
+import createAxiosInstance from './axios';
 
 const MyProduct = ({ endpoint, data }) => {
   const accessToken = useUserStore((state) => state.accessToken);
@@ -17,7 +17,7 @@ const MyProduct = ({ endpoint, data }) => {
 
     try {
       const res = await axiosInstance.post(body, config);
-      if (!res) alert("통신상태 이상");
+      if (!res) alert('통신상태 이상');
       console.log(res);
     } catch (err) {
       console.error(err);
@@ -28,7 +28,6 @@ const MyProduct = ({ endpoint, data }) => {
     try {
       const res = await axiosInstance.get();
       console.log(res.data);
-      const boardList = res.data;
     } catch (err) {
       console.error(err);
     }
