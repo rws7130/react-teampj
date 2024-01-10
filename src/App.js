@@ -8,9 +8,7 @@ import SignupPage from './pages/user/SignupPage';
 import { AdminDev1, AdminDev2, AdminDev3, AdminDev4, AdminDev5, AdminDev6 } from 'pages/admin';
 import { UserDev1, UserDev2, UserDev3, UserDev4, UserDev5, UserDev6 } from 'pages/user';
 
-function Main() {
-  return null;
-}
+
 
 export default function App() {
   console.log(1);
