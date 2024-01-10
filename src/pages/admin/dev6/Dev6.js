@@ -1,4 +1,5 @@
 import AdminEditor from "../../../components/AdminEditor";
+
 export default function Dev6() {
   return (
     <div>
