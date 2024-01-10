@@ -18,7 +18,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState("");
   const setUser = useUserStore((state) => state.setUser);
 
-  const { mutate } = useMutation(login, {
+  const { mutate, isLoading: loginLoading } = useMutation(login, {
     onSuccess: async (data) => {
       console.log("success");
       await setUser(data);
@@ -41,6 +41,10 @@ const LoginPage = () => {
   const handleKaKaoLogin = () => {
     kakao();
   };
+
+  if (loginLoading) {
+    return <p>로딩 중...</p>;
+  }
 
   return (
     <LoginContainer>
