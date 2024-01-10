@@ -33,7 +33,7 @@ export const login = async (user) => {
     });
     const data = await res.json();
     console.log('응답코드 변경해야함');
-    if (data.statusCode !== 401) {
+    if (data.statusCode !== 401 || data.statusCode !== 400 ) {
       useUserStore.getState().setAccessToken(data.accessToken);
       secureLocalStorage.setItem('refreshToken', data.refreshToken);
     } else {
