@@ -71,6 +71,7 @@ export const signup = async (user) => {
 };
 
 export const kakaoLogin = async () => {
+  console.log('keyKakao', process.env.REACT_APP_KAKAO_JS_SDK_KEY)
   window.Kakao.init(process.env.REACT_APP_KAKAO_JS_SDK_KEY);
   console.log(window.Kakao.isInitialized());
 
