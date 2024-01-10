@@ -6,6 +6,7 @@ module.exports = {
   },
   extends: [
     'plugin:testing-library/react',
+    'plugin:jest/recommended',
     'plugin:jest-dom/recommended',
     'eslint:recommended',
     'plugin:react/recommended',
@@ -26,7 +27,7 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'testing-library', 'jest-dom', 'prettier'],
+  plugins: ['react', 'testing-library', 'jest', 'jest-dom', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
