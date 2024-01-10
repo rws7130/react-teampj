@@ -10,6 +10,7 @@ import {
   LoginCheckboxLabel,
   LoginContainer,
   LoginInput,
+  StyledLoader,
 } from "../../styles/LoginStyled";
 import { Link } from "react-router-dom";
 
@@ -43,7 +44,11 @@ const LoginPage = () => {
   };
 
   if (loginLoading) {
-    return <p>로딩 중...</p>;
+    return (
+      <LoginContainer>
+        <StyledLoader />
+      </LoginContainer>
+    );
   }
 
   return (
