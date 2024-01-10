@@ -1,50 +1,50 @@
-import React, { useState } from "react";
-import { useMutation } from "react-query";
-import { useUserStore } from "../../store/useUserStore";
-import { Link } from "react-router-dom";
-import { signup } from "../../api/auth.js";
+import React, { useState } from 'react';
+import { useMutation } from 'react-query';
+import { useUserStore } from '../../store/useUserStore';
+import { Link } from 'react-router-dom';
+import { signup } from '../../api/auth.js';
 
 const SignupPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [name, setName] = useState("");
-  const [nickname, setNickname] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [name, setName] = useState('');
+  const [nickname, setNickname] = useState('');
   const setUser = useUserStore((state) => state.setUser);
 
   const { mutate } = useMutation(signup, {
     onSuccess: async (data) => {
-      console.log("success");
+      console.log('success');
       await setUser(data);
     },
     onError: (error) => {
-      console.error("signup failed", error);
+      console.error('signup failed', error);
     },
   });
 
   const handleSignup = () => {
     if (password !== passwordConfirm) {
-      alert("비밀번호가 일치하지 않습니다.");
+      alert('비밀번호가 일치하지 않습니다.');
       return;
     }
     mutate({ email, password, name, nickname });
   };
   const handleVerifyEmail = async () => {
-    console.log("이메일인증");
+    console.log('이메일인증');
 
-    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/mail/send-code`, {
-        method: "POST",
+    const res = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/mail/send-code`,
+      {
+        method: 'POST',
         headers: {
-            "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email }),
-        })
+      },
+    );
     const data = await res.json();
     alert(`${data.message} \n ${data.expirationTime}`);
     // timer 시작 10분
-
-
-
   };
   return (
     <div>

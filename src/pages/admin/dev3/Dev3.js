@@ -1,10 +1,10 @@
-import AdminEditor from "../../../components/AdminEditor";
+import AdminEditor from '../../../components/AdminEditor';
 export default function Dev3() {
   return (
     <div>
       <h1>Dev3</h1>
       <AdminEditor />
-        dsfasdfasdfasdf
+      dsfasdfasdfasdf
     </div>
   );
 }

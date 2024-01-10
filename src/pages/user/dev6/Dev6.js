@@ -1,8 +1,8 @@
-import AdminEditor from "../../../components/AdminEditor";
-import UserDev3 from "../dev3/Dev3";
-import { useEffect, useState } from "react";
-import createAxiosInstance from "../../../api/axios";
-import { useUserStore } from "../../../store/useUserStore";
+import AdminEditor from '../../../components/AdminEditor';
+import UserDev3 from '../dev3/Dev3';
+import { useEffect, useState } from 'react';
+import createAxiosInstance from '../../../api/axios';
+import { useUserStore } from '../../../store/useUserStore';
 
 export default function Dev6() {
   const [boardList, setBoardList] = useState([]);
@@ -12,13 +12,14 @@ export default function Dev6() {
   console.log(user);
   console.log(accessToken);
   // Axios 인스턴스 생성
-  const axiosInstance = createAxiosInstance("/api6s");
+  const axiosInstance = createAxiosInstance('/api6s');
 
   const postApi6 = async () => {
     const body = {
-      title: "인풋에잇는 벨류를 타이틀",
-      content: "텍스트 아레아 에 있는 벨류를 컨텐츠로 보냄 예시로, 슬라이드  이미지" ,
-          // image:[''],
+      title: '인풋에잇는 벨류를 타이틀',
+      content:
+        '텍스트 아레아 에 있는 벨류를 컨텐츠로 보냄 예시로, 슬라이드  이미지',
+      // image:[''],
     };
     const config = {
       headers: {
@@ -28,7 +29,7 @@ export default function Dev6() {
 
     try {
       const res = await axiosInstance.post(body, config);
-      if (!res) alert("통신상태 이상");
+      if (!res) alert('통신상태 이상');
       console.log(res);
     } catch (err) {
       console.error(err);
@@ -41,14 +42,14 @@ export default function Dev6() {
       console.log(res.data);
       const boardList = res.data;
       setBoardList(res.data);
-      console.log("BoardList", boardList);
+      console.log('BoardList', boardList);
     } catch (err) {
       console.error(err);
     }
   };
 
   useEffect(() => {
-    console.log("boardList", boardList);
+    console.log('boardList', boardList);
   }, [setBoardList]);
 
   return (

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Editor } from "react-draft-wysiwyg";
-import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-import styled from "styled-components";
-import { EditorState } from "draft-js";
+import React, { useState } from 'react';
+import { Editor } from 'react-draft-wysiwyg';
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import styled from 'styled-components';
+import { EditorState } from 'draft-js';
 
 function AdminEditor() {
   // useState로 상태관리하기 초기값은 EditorState.createEmpty()
@@ -56,7 +56,7 @@ function AdminEditor() {
           placeholder="내용을 작성해주세요."
           // 한국어 설정
           localization={{
-            locale: "ko",
+            locale: 'ko',
           }}
           // 초기값 설정
           editorState={editorState}
