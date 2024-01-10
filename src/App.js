@@ -6,22 +6,8 @@ import LoginPage from './pages/user/LoginPage';
 import AdminLogin from './pages/admin/AdminLogin';
 import SignupPage from './pages/user/SignupPage';
 import AdminMainPage from 'pages/admin/AdminMainPage';
-import {
-  AdminDev1,
-  AdminDev2,
-  AdminDev3,
-  AdminDev4,
-  AdminDev5,
-  AdminDev6,
-} from 'pages/admin';
-import {
-  UserDev1,
-  UserDev2,
-  UserDev3,
-  UserDev4,
-  UserDev5,
-  UserDev6,
-} from 'pages/user';
+import { AdminDev1, AdminDev2, AdminDev3, AdminDev4, AdminDev5, AdminDev6 } from 'pages/admin';
+import { UserDev1, UserDev2, UserDev3, UserDev4, UserDev5, UserDev6 } from 'pages/user';
 
 export default function App() {
   const user = useUserStore((state) => state.user);
