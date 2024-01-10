@@ -10,6 +10,7 @@ module.exports = {
     'plugin:jest-dom/recommended',
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:prettier/recommended',
     'prettier',
   ],
   overrides: [
@@ -31,6 +32,7 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'import/no-unresolved': ['error', { caseSensitive: false }],
+    'prettier/prettier': 'error',
   },
   settings: {
     react: {

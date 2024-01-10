@@ -33,16 +33,13 @@ const SignupPage = () => {
   const handleSendToEmail = async () => {
     console.log('이메일인증');
 
-    const res = await fetch(
-      `${process.env.REACT_APP_SERVER_URL}/mail/send-code`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email }),
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/mail/send-code`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify({ email }),
+    });
     const data = await res.json();
     alert(`${data.message} \n ${data.expirationTime}`);
     // timer 시작 10분
@@ -51,16 +48,13 @@ const SignupPage = () => {
   const handleVerifyCode = async () => {
     console.log('인증번호확인');
     try {
-      const res = await fetch(
-        `${process.env.REACT_APP_SERVER_URL}/mail/verify-code`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ email, code }),
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/mail/verify-code`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
+        body: JSON.stringify({ email, code }),
+      });
       const data = await res.json();
       console.log(data);
       alert('인증이 완료되었습니다.');
