@@ -10,7 +10,7 @@ module.exports = {
     'plugin:jest-dom/recommended',
     'eslint:recommended',
     'plugin:react/recommended',
-    'plugin:prettier/recommended',
+    'prettier',
   ],
   overrides: [
     {
@@ -27,12 +27,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'testing-library', 'jest', 'jest-dom', 'prettier'],
+  plugins: ['react', 'testing-library', 'jest', 'jest-dom'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
     'import/extensions': ['off'],
-    'prettier/prettier': 'error',
   },
   settings: {
     react: {
