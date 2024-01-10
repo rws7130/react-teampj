@@ -16,12 +16,13 @@ export default function Dev6() {
 
   const postApi6 = async () => {
     const body = {
-      title: "test123",
-      content: "test123456",
+      title: "인풋에잇는 벨류를 타이틀",
+      content: "텍스트 아레아 에 있는 벨류를 컨텐츠로 보냄 예시로, 슬라이드  이미지" ,
+          // image:[''],
     };
     const config = {
       headers: {
-        Authorization: `Bearer ${accessToken}`,
+        authorization: `Bearer ${accessToken}`,
       },
     };
 

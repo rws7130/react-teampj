@@ -29,8 +29,26 @@ const SignupPage = () => {
     }
     mutate({ email, password, name, nickname });
   };
-  const handleVerifyEmail = () => {
+  const handleVerifyEmail = async () => {
     console.log("이메일인증");
+
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/mail/send-code`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+        })
+    const data = await res.json();
+    alert(`${data.message} \n ${data.expirationTime}`);
+    // timer 시작 10분
+
+
+
+
+
+    
+
   };
   return (
     <div>
