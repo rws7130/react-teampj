@@ -10,6 +10,7 @@ const SignupPage = () => {
   const [passwordConfirm, setPasswordConfirm] = useState('');
   const [name, setName] = useState('');
   const [nickname, setNickname] = useState('');
+  const [code, setCode] = useState('');
   const setUser = useUserStore((state) => state.setUser);
 
   const { mutate } = useMutation(signup, {
@@ -29,7 +30,7 @@ const SignupPage = () => {
     }
     mutate({ email, password, name, nickname });
   };
-  const handleVerifyEmail = async () => {
+  const handleSendToEmail = async () => {
     console.log('이메일인증');
 
     const res = await fetch(
@@ -46,6 +47,28 @@ const SignupPage = () => {
     alert(`${data.message} \n ${data.expirationTime}`);
     // timer 시작 10분
   };
+
+  const handleVerifyCode = async () => {
+    console.log('인증번호확인');
+    try {
+      const res = await fetch(
+        `${process.env.REACT_APP_SERVER_URL}/mail/verify-code`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email, code }),
+        },
+      );
+      const data = await res.json();
+      console.log(data);
+      alert('인증이 완료되었습니다.');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <h1>일반 회원가입</h1>
@@ -58,8 +81,16 @@ const SignupPage = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
-          <button onClick={handleVerifyEmail}>이메일 인증하기</button>
+          <button onClick={handleSendToEmail}>이메일 인증하기</button>
           <span>10:00</span>
+
+          <input
+            type="text"
+            placeholder="인증번호를 입력해주세요."
+            value={code}
+            onChange={(e) => setCode(e.target.value)}
+          />
+          <button onClick={handleVerifyCode}>확인</button>
         </p>
 
         <p>
