@@ -1,16 +1,22 @@
-import { useEffect, useState } from 'react';
+// import { useEffect } from 'react';
 // import createAxiosInstance from '../../../api/axios';
 // import { useUserStore } from '../../../store/useUserStore';
 import MyProduct from 'api/product';
 
 export default function Dev6() {
-  const [boardList, setBoardList] = useState([]);
+  // const [boardList, setBoardList] = useState(null);
 
-  const data = boardList;
+  // const data = boardList;
 
-  const getMyProduct = MyProduct({ endpoint: '/api6s' }).getApi();
+  const getMyProduct = async () => {
+    MyProduct({ endpoint: '/api6s' }).getApi();
+  };
 
-  const postMyProduct = MyProduct({ endpoint: '/api6s', data }).postApi();
+  const data = null;
+
+  const postMyProduct = async () => {
+    MyProduct({ endpoint: '/api6s', data }).postApi();
+  };
 
   console.log('getMyProduct', getMyProduct);
 
@@ -54,15 +60,15 @@ export default function Dev6() {
   //   }
   // };
 
-  useEffect(() => {
-    console.log('boardList', boardList);
-  }, [setBoardList]);
+  // useEffect(() => {
+  //   console.log('boardList', boardList);
+  // }, [setBoardList]);
 
   return (
     <div>
       <h1>UserDev6</h1>
 
-      <div>
+      {/* <div>
         {boardList.map((board) => {
           return (
             <>
@@ -71,7 +77,7 @@ export default function Dev6() {
             </>
           );
         })}
-      </div>
+      </div> */}
       <div>
         <button onClick={getMyProduct}>겟 요청 예시</button>
         <button onClick={postMyProduct}>포스트 요청 예시</button>
