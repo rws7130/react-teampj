@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { useUserStore } from "../../store/useUserStore";
-import { useMutation } from "react-query";
-import { kakaoLogin, login } from "../../api/auth";
+import React, { useState } from 'react';
+import { useUserStore } from '../../store/useUserStore';
+import { useMutation } from 'react-query';
+import { kakaoLogin, login } from '../../api/auth';
 import {
   KaKaoLoginButton,
   LoginBox,
@@ -11,28 +11,28 @@ import {
   LoginContainer,
   LoginInput,
   StyledLoader,
-} from "../../styles/LoginStyled";
-import { Link } from "react-router-dom";
+} from '../../styles/LoginStyled';
+import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const setUser = useUserStore((state) => state.setUser);
 
   const { mutate, isLoading: loginLoading } = useMutation(login, {
     onSuccess: async (data) => {
-      console.log("success");
+      console.log('success');
       await setUser(data);
     },
   });
 
   const { mutate: kakao } = useMutation(kakaoLogin, {
     onSuccess: async (data) => {
-      console.log("success kakao", data);
+      console.log('success kakao', data);
       await setUser(data);
     },
     onError: (error) => {
-      console.error("Kakao login failed", error);
+      console.error('Kakao login failed', error);
     },
   });
 

@@ -8,7 +8,7 @@ export const postLogin = async (id, password) => {
 
   const res = await Axios('/auth/login/email').post(
     {},
-    { headers: { Authorization: `Basic ${auth}` } }
+    { headers: { Authorization: `Basic ${auth}` } },
   );
 
   return res;
@@ -24,16 +24,19 @@ export const postRegister = async (params) => {
 export const login = async (user) => {
   const token = btoa(`${user.email}:${user.password}`);
   try {
-    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/auth/login/email`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Basic ${token}`,
+    const res = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/auth/login/email`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Basic ${token}`,
+        },
       },
-    });
+    );
     const data = await res.json();
     console.log('응답코드 변경해야함');
-    if (data.statusCode !== 401 || data.statusCode !== 400 ) {
+    if (data.statusCode !== 401 || data.statusCode !== 400) {
       useUserStore.getState().setAccessToken(data.accessToken);
       secureLocalStorage.setItem('refreshToken', data.refreshToken);
     } else {
@@ -48,13 +51,16 @@ export const login = async (user) => {
 export const signup = async (user) => {
   console.log(user);
   try {
-    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/auth/register/email`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const res = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/auth/register/email`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
       },
-      body: JSON.stringify(user),
-    });
+    );
     const data = await res.json();
     console.log(data);
     console.log('응답코드 변경해야함');
@@ -71,7 +77,7 @@ export const signup = async (user) => {
 };
 
 export const kakaoLogin = async () => {
-  console.log('keyKakao', process.env.REACT_APP_KAKAO_JS_SDK_KEY)
+  console.log('keyKakao', process.env.REACT_APP_KAKAO_JS_SDK_KEY);
   window.Kakao.init(process.env.REACT_APP_KAKAO_JS_SDK_KEY);
   console.log(window.Kakao.isInitialized());
 
@@ -79,13 +85,16 @@ export const kakaoLogin = async () => {
     window.Kakao.Auth.login({
       success: async function (authObj) {
         try {
-          const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/auth/kakao/login/js`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              authorization: `Basic ${authObj.access_token}`,
+          const res = await fetch(
+            `${process.env.REACT_APP_SERVER_URL}/auth/kakao/login/js`,
+            {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                authorization: `Basic ${authObj.access_token}`,
+              },
             },
-          });
+          );
           const data = await res.json();
           console.log(data);
           console.log('응답코드 변경해야함');
