@@ -8,7 +8,6 @@ const MyProduct = ({ endpoint, data }) => {
   const axiosInstance = createAxiosInstance({ endpoint });
 
   const postApi = async () => {
-    const body = { data };
     const config = {
       headers: {
         authorization: `Bearer ${accessToken}`,
@@ -16,7 +15,7 @@ const MyProduct = ({ endpoint, data }) => {
     };
 
     try {
-      const res = await axiosInstance.post(body, config);
+      const res = await axiosInstance.post(data, config);
       if (!res) alert('통신상태 이상');
       console.log(res);
     } catch (err) {
