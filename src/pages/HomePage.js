@@ -12,9 +12,9 @@ const HomePage = () => {
 
   return (
     <div>
-      <h1>홈 </h1>
+      <h1>홈test </h1>
       <h2>{user?.email}</h2>
-      <Link to="/admin">어드민으로 이동</Link>
+      <Link to="/admin">어드민으로 이동</Link>``````
       <div>
         <Link to="/user/dev1">userDev1</Link>
         <Link to="/user/dev2">userDev2</Link>
